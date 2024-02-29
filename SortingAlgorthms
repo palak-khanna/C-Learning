@@ -1,0 +1,21 @@
+There are many types of sorting algorithms, each with its own characteristics and efficiency. Here are some of the most common ones:
+
+Bubble Sort: This algorithm repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. It continues iterating until the list is sorted.
+
+Selection Sort: Selection sort divides the input list into two parts: the sublist of items already sorted and the sublist of items remaining to be sorted. It repeatedly selects the smallest element from the unsorted sublist and moves it to the end of the sorted sublist.
+
+Insertion Sort: Similar to playing cards in your hand, insertion sort builds the final sorted array one item at a time. It takes each element from the input list and inserts it into its correct position in the sorted portion of the list.
+
+Merge Sort: Merge sort is a divide-and-conquer algorithm that divides the input list into smaller sublists, sorts those sublists recursively, and then merges them back together to produce the final sorted list.
+
+Quick Sort: Quick sort also uses a divide-and-conquer strategy. It selects a 'pivot' element from the list and partitions the other elements into two sublists according to whether they are less than or greater than the pivot. It then recursively sorts the sublists.
+
+Heap Sort: Heap sort utilizes a binary heap data structure to sort the elements. It first builds a heap from the input list and then repeatedly extracts the maximum (for ascending order) element from the heap and rebuilds the heap until the list is sorted.
+
+Counting Sort: Counting sort is efficient for sorting a small range of integers. It works by determining, for each input element, the number of elements that are less than it. It then places the element directly into its correct position in the output array.
+
+Radix Sort: Radix sort sorts the elements by first grouping the individual digits of the same place value together and sorting them accordingly. It can be implemented using a stable sorting algorithm such as counting sort or bucket sort.
+
+Bucket Sort: Bucket sort divides the input list into a number of buckets, each capable of holding a range of values. The elements are then distributed into these buckets and sorted individually. Finally, the sorted elements from all the buckets are combined to produce the sorted output.
+
+Each sorting algorithm has its advantages and disadvantages in terms of time complexity, space complexity, stability, and adaptability to different input types and sizes. The choice of which algorithm to use depends on various factors such as the size of the input, the range of values, and the desired performance characteristics.
