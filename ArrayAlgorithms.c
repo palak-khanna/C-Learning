@@ -121,8 +121,8 @@ void bubble_sort(int array1[], int count){
     printf("\n----BUBBLE SORT----\n");
     // printf("%d\n",count);
     display(array1,count);
-    for (int j=0; j<count; j++){
-        for(int i=0; i<count-1; i++){
+    for (int j=0; j<count-1; j++){
+        for(int i=0; i<count-j-1; i++){
             if(array1[i]>array1[i+1]){
                 int temp = array1[i];
                 array1[i]= array1[i+1];
