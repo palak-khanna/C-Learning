@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// making a copy here everywhere 
+
 /* ARRAY OPERATIONS 
 - CREATION
 - TRAVERSING
