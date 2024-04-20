@@ -31,7 +31,7 @@ struct node* insert_element(struct node* start, int val){
             }
         }
         
-        if(val<parentpr->data){
+        if(val<parentptr->data){
             parentptr = parentptr->left;
         }else{
             parentptr = parentptr -> right;
@@ -95,7 +95,7 @@ struct node* delete_element(struct node*root, int val){
         
         temp = minValueNode(root->right);
         root->data = temp->data;
-        root->right = delete_element(root->right, tenp->data);
+        root->right = delete_element(root->right, temp->data);
         
     }
     return root;
@@ -105,8 +105,8 @@ struct node *deleteTree(struct node *tree)
 {
     if(tree!=NULL)
     {
-        deleteTree(tree–>left);
-        deleteTree(tree–>right);
+        deleteTree(tree->left);
+        deleteTree(tree->right);
         free(tree);
     }
 }
@@ -121,37 +121,35 @@ struct node* maxValueNode(struct node* start){
 
 int totalNodes(struct node* root){
     if(root==NULL) return 0;
-    else return(totalNodes(root->left)+total(nodes->right)+1)
+    else return(totalNodes(root->left)+totalNodes(root->right)+1);
 }
 
 int totalExternalNodes(struct node *tree)
 {
     if(tree==NULL) return 0;
-    else if((tree–>left==NULL) && (tree–>right==NULL))
+    else if((tree->left==NULL) && (tree->right==NULL))
     return 1;
     else 
-    return (totalExternalNodes(tree–>left) +
-    totalExternalNodes(tree–>right));
+    return (totalExternalNodes(tree->left) +
+    totalExternalNodes(tree->right));
 }
 
 int totalInternalNodes(struct node *tree)
 {
-    if( (tree==NULL) || ((tree–>left==NULL) && (tree–>right==NULL))) return 0;
+    if( (tree==NULL) || ((tree->left==NULL) && (tree->right==NULL))) return 0;
     else
-    return (totalInternalNodes(tree–>left)
-    + totalInternalNodes(tree–>right) + 1);
+    return (totalInternalNodes(tree->left)
+    + totalInternalNodes(tree->right) + 1);
 }
 
 int Height(struct node *tree)
 {
     int leftheight, rightheight;
-    Efficient Binary Trees 311
-    if(tree==NULL)
-        return 0;
+    if(tree==NULL)return 0;
     else
     {
-        leftheight = Height(tree–>left);
-        rightheight = Height(tree–>right);
+        leftheight = Height(tree->left);
+        rightheight = Height(tree->right);
         if(leftheight > rightheight)
             return (leftheight + 1);
         else
@@ -160,6 +158,7 @@ int Height(struct node *tree)
 }
 
 int main() {
+    int option;
     printf("\n ******MAIN MENU******* \n");
     printf("\n 1. Insert Element");
     printf("\n 2. Preorder Traversal");
@@ -180,51 +179,52 @@ int main() {
     switch(option)
     {
         case 1:
+            int val;
             printf("\n Enter the value of the new node : ");
             scanf("%d", &val);
-            tree = insert_element(tree, val);
+            START = insert_element(START, val);
             break;
         case 2:
             printf("\n The elements of the tree are : \n");
-            preorder_traversal(tree);
+            preorder_traversal(START);
             break;
         case 3:
             printf("\n The elements of the tree are : \n");
-            inorder_traversal(tree);
+            inorder_traversal(START);
             break;
         case 4:
             printf("\n The elements of the tree are : \n");
-            postorder_traversal(tree);
+            postorder_traversal(START);
             break;
         case 5:
-            ptr = minValueNode(tree);
-            printf("\n Smallest element is :%d",ptr–>data);
+            struct node* minptr = minValueNode(START);
+            printf("\n Smallest element is :%d",minptr->data);
             break;
         case 6:
-            ptr = maxValueNode(tree);
-            printf("\n Largest element is : %d", ptr–>data);
+            struct node* maxptr= maxValueNode(START);
+            printf("\n Largest element is : %d", maxptr->data);
             break;
         case 7:
             printf("\n Enter the element to be deleted : ");
             scanf("%d", &val);
-            tree = delete_element(tree, val);
+            START = delete_element(START, val);
             break;
         case 8:
-            printf("\n Total no. of nodes = %d", totalNodes(tree));
+            printf("\n Total no. of nodes = %d", totalNodes(START));
             break;
         case 9:
             printf("\n Total no. of external nodes = %d", 
-            totalExternalNodes(tree));
+            totalExternalNodes(START));
             break;
         case 10:
             printf("\n Total no. of internal nodes = %d", 
-            totalInternalNodes(tree));
+            totalInternalNodes(START));
             break;
         case 11:
-            printf("\n The height of the tree = %d",Height(tree));
+            printf("\n The height of the tree = %d",Height(START));
             break;
         case 12:
-            tree = deleteTree(tree);
+            struct node * delTree = deleteTree(START);
             break;
     }
 }
